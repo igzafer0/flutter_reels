@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+import 'package:wheel_slider/wheel_slider.dart';
 
 class VideoScreen extends StatefulWidget {
   const VideoScreen({super.key});
@@ -31,16 +32,28 @@ class _VideoScreenState extends State<VideoScreen> {
     return Scaffold(
       body: Center(
         child: _controller.value.isInitialized
-            ? SizedBox.expand(
-                child: FittedBox(
-                  fit: BoxFit.cover,
-                  child: SizedBox(
-                    width: _controller.value.size.width,
-                    height: _controller.value.size.height,
-                    child: VideoPlayer(_controller),
+            ? PageView(scrollDirection: Axis.vertical, children: [
+                SizedBox.expand(
+                  child: FittedBox(
+                    fit: BoxFit.cover,
+                    child: SizedBox(
+                      width: _controller.value.size.width,
+                      height: _controller.value.size.height,
+                      child: VideoPlayer(_controller),
+                    ),
                   ),
                 ),
-              )
+                SizedBox.expand(
+                  child: FittedBox(
+                    fit: BoxFit.cover,
+                    child: SizedBox(
+                      width: _controller.value.size.width,
+                      height: _controller.value.size.height,
+                      child: VideoPlayer(_controller),
+                    ),
+                  ),
+                )
+              ])
             : Container(),
       ),
       floatingActionButton: FloatingActionButton(

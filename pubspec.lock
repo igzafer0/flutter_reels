@@ -253,6 +253,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.16"
+  wheel_chooser:
+    dependency: transitive
+    description:
+      name: wheel_chooser
+      sha256: "3fee36f081f321c58a0b7b4afcdd92599f2ca520b3a1420084774e6b19cca1d8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.2"
+  wheel_slider:
+    dependency: "direct dev"
+    description:
+      name: wheel_slider
+      sha256: "27edf35de307709fb6c08f61ec4ecd78a1ef4d08c41efa8ff07bcf418ac03ff1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
 sdks:
   dart: ">=2.19.5 <3.0.0"
   flutter: ">=3.3.0"
