@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
-import 'package:wheel_slider/wheel_slider.dart';
 
 class VideoScreen extends StatefulWidget {
   const VideoScreen({super.key});
