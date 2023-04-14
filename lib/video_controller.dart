@@ -5,8 +5,9 @@ import 'package:video_player/video_player.dart';
 
 class VideoController extends StatefulWidget {
   late VideoPlayerController controller;
+  int index;
   String url;
-  VideoController({super.key, required this.url});
+  VideoController({super.key, required this.url, required this.index});
 
   @override
   State<VideoController> createState() => _VideoControllerState();
@@ -19,7 +20,9 @@ class _VideoControllerState extends State<VideoController> {
     widget.controller = VideoPlayerController.network(widget.url)
       ..initialize().then((_) {
         setState(() {
-          widget.controller.setLooping(true);
+          if (widget.index == 0) {
+            widget.controller.play();
+          }
         });
       });
   }

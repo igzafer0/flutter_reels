@@ -24,7 +24,7 @@ class _VideoScreenState extends State<VideoScreen> {
     "https://assets.mixkit.co/videos/preview/mixkit-waves-in-the-water-1164-large.mp4",
     "https://assets.mixkit.co/videos/preview/mixkit-red-frog-on-a-log-1487-large.mp4",
     "https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4",
-    "https://mixkit.co/free-stock-video/black-and-orange-tarantula-walking-vertical-shot-1482/",
+    "https://assets.mixkit.co/videos/preview/mixkit-black-and-orange-tarantula-walking-vertical-shot-1482-large.mp4",
     "https://assets.mixkit.co/videos/preview/mixkit-a-surfer-walking-on-the-beach-with-a-surfboard-1220-large.mp4",
     "https://assets.mixkit.co/videos/preview/mixkit-urban-man-puts-on-a-glasses-at-a-dark-room-1235-large.mp4"
   ];
@@ -34,17 +34,21 @@ class _VideoScreenState extends State<VideoScreen> {
     return Scaffold(
       body: Center(
         child: PageView.builder(
-          itemCount: 10,
+          itemCount: 150,
           scrollDirection: Axis.vertical,
-          pageSnapping: true,
           onPageChanged: (value) {
             dataList[oldValue].controller.pause();
             dataList[value].controller.play();
+
             oldValue = value;
           },
           itemBuilder: ((context, index) {
-            dataList.add(VideoController(
-                url: videoList[Random().nextInt(videoList.length)]));
+            dataList.add(
+              VideoController(
+                url: videoList[index % videoList.length],
+                index: index,
+              ),
+            );
             return dataList[index];
           }),
         ),
