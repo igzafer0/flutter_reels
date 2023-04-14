@@ -1,5 +1,7 @@
 // ignore_for_file: depend_on_referenced_packages
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
@@ -13,13 +15,21 @@ class VideoController extends StatefulWidget {
 }
 
 class _VideoControllerState extends State<VideoController> {
+  var videoList = [
+    "https://assets.mixkit.co/videos/preview/mixkit-portrait-of-a-fashion-woman-with-silver-makeup-39875-large.mp4",
+    "https://assets.mixkit.co/videos/preview/mixkit-waves-in-the-water-1164-large.mp4",
+    "https://assets.mixkit.co/videos/preview/mixkit-red-frog-on-a-log-1487-large.mp4",
+    "https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4",
+    "https://mixkit.co/free-stock-video/black-and-orange-tarantula-walking-vertical-shot-1482/",
+    "https://assets.mixkit.co/videos/preview/mixkit-a-surfer-walking-on-the-beach-with-a-surfboard-1220-large.mp4",
+    "https://assets.mixkit.co/videos/preview/mixkit-urban-man-puts-on-a-glasses-at-a-dark-room-1235-large.mp4"
+  ];
   @override
   void initState() {
     super.initState();
     widget.controller = VideoPlayerController.network(
-        'https://assets.mixkit.co/videos/preview/mixkit-portrait-of-a-fashion-woman-with-silver-makeup-39875-large.mp4')
+        videoList[Random().nextInt(videoList.length)])
       ..initialize().then((_) {
-        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
         setState(() {
           widget.controller.setLooping(true);
         });
@@ -41,7 +51,9 @@ class _VideoControllerState extends State<VideoController> {
                   ),
                 ),
               )
-            : Container(),
+            : Container(
+                color: Colors.black,
+              ),
       ),
     );
   }
