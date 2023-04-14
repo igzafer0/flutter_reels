@@ -1,7 +1,5 @@
 // ignore_for_file: depend_on_referenced_packages
 
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_reels/video_controller.dart';
 
@@ -26,7 +24,7 @@ class _VideoScreenState extends State<VideoScreen> {
     "https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4",
     "https://assets.mixkit.co/videos/preview/mixkit-black-and-orange-tarantula-walking-vertical-shot-1482-large.mp4",
     "https://assets.mixkit.co/videos/preview/mixkit-a-surfer-walking-on-the-beach-with-a-surfboard-1220-large.mp4",
-    "https://assets.mixkit.co/videos/preview/mixkit-urban-man-puts-on-a-glasses-at-a-dark-room-1235-large.mp4"
+    "https://assets.mixkit.co/videos/preview/mixkit-urban-man-puts-on-a-glasses-at-a-dark-room-1235-large.mp4",
   ];
   int oldValue = 0;
   @override
