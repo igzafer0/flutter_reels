@@ -24,7 +24,7 @@ class _VideoScreenState extends State<VideoScreen> {
     "https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4",
     "https://assets.mixkit.co/videos/preview/mixkit-black-and-orange-tarantula-walking-vertical-shot-1482-large.mp4",
     "https://assets.mixkit.co/videos/preview/mixkit-a-surfer-walking-on-the-beach-with-a-surfboard-1220-large.mp4",
-    "https://assets.mixkit.co/videos/preview/mixkit-urban-man-puts-on-a-glasses-at-a-dark-room-1235-large.mp4",
+    "https://assets.mixkit.co/videos/preview/mixkit-urban-man-puts-on-a-glasses-at-a-dark-room-1235-large.mp4"
   ];
   int oldValue = 0;
   @override
@@ -37,7 +37,6 @@ class _VideoScreenState extends State<VideoScreen> {
           onPageChanged: (value) {
             dataList[oldValue].controller.pause();
             dataList[value].controller.play();
-
             oldValue = value;
           },
           itemBuilder: ((context, index) {
