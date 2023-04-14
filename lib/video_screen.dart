@@ -33,19 +33,22 @@ class _VideoScreenState extends State<VideoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-          child: PageView.builder(
-              itemCount: 10,
-              scrollDirection: Axis.vertical,
-              onPageChanged: (value) {
-                dataList[oldValue].controller.pause();
-                dataList[value].controller.play();
-                oldValue = value;
-              },
-              itemBuilder: ((context, index) {
-                dataList.add(VideoController(
-                    url: videoList[Random().nextInt(videoList.length)]));
-                return dataList[index];
-              }))),
+        child: PageView.builder(
+          itemCount: 10,
+          scrollDirection: Axis.vertical,
+          pageSnapping: true,
+          onPageChanged: (value) {
+            dataList[oldValue].controller.pause();
+            dataList[value].controller.play();
+            oldValue = value;
+          },
+          itemBuilder: ((context, index) {
+            dataList.add(VideoController(
+                url: videoList[Random().nextInt(videoList.length)]));
+            return dataList[index];
+          }),
+        ),
+      ),
     );
   }
 }
